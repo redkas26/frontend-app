@@ -1,40 +1,52 @@
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css'
 
-import EditProduct from "./components/edit.component"; 
-import CreateProduct from "./components/create.component"; 
-import ProductList from "./components/list.component"; 
+import NavbarBrand from "./components/navbar"; 
+import Button from './components/button';
+import Posts from './components/posts';
 
 
 function App() {
   return (
-    <Router>
-         <nav className="navbar navbar-expand-lg bg-body-tertiary">
-          <div className="container-fluid">
-            <Link to= {"/"} className="navbar-brand" >Products</Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link className="nav-link active" to={"/"}>Products</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link active" to={"/product/create"}>Create</Link>
-                </li>
-              </ul>
-            </div>
+    <>
+      <NavbarBrand />
+
+      <div className='container'>
+        <div className='row justify-content-evenly' >
+          <div className='col-6'>
+            <Posts postName='Learn a Laravel PHP' postBody='Junior developper'/>
+            <Posts postName='Learn a JavaScript' postBody='Senior Developper'/>
+            <Posts postName='Learn a Java' postBody='Junior developer' />
           </div>
-      </nav>
-      <Routes>
-        <Route path='/product/create' element={<CreateProduct />}></Route>
-        <Route path='/product/edit/:id' element={<EditProduct />}></Route>
-        <Route path='/' element={<ProductList />}></Route>
-      </Routes>
-     
-    </Router>
+          
+          <div className='col-4'>
+            <Button title='Java' imgUrl=''/>
+            <Button title='javascript'/>
+            <Button title='php laravel'/>
+            <Button title='python 😞😞'>
+              <div>
+                <span></span>
+              </div>
+            </Button>
+            <Button>
+              <div>
+                <img style={{width:"100px",height:"50px"}} src='https://tse1.mm.bing.net/th?id=OIP.64GEkhZ7oG2up_WZ-E2lRgHaE8&pid=Api&P=0&h=180' alt=''></img>
+              </div>
+            </Button>
+            <Button />
+            <Button />
+            <Button />
+            <Button />
+            <Button />
+          </div>
+      </div>
+          
+          
+          
+    </div>
+      
+    </>
   );
 }
 
